@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2821575D2206549500958587 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821575C2206549500958587 /* MainTableViewController.swift */; };
 		28E39F222206533A00A71535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E39F212206533A00A71535 /* AppDelegate.swift */; };
 		28E39F272206533A00A71535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E39F252206533A00A71535 /* Main.storyboard */; };
 		28E39F2A2206533A00A71535 /* CoreDataApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28E39F282206533A00A71535 /* CoreDataApp.xcdatamodeld */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2821575C2206549500958587 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		28E39F1E2206533A00A71535 /* CoreDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E39F212206533A00A71535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28E39F262206533A00A71535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				28E39F212206533A00A71535 /* AppDelegate.swift */,
+				2821575C2206549500958587 /* MainTableViewController.swift */,
 				28E39F252206533A00A71535 /* Main.storyboard */,
 				28E39F2B2206534500A71535 /* Assets.xcassets */,
 				28E39F2D2206534500A71535 /* LaunchScreen.storyboard */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28E39F2A2206533A00A71535 /* CoreDataApp.xcdatamodeld in Sources */,
+				2821575D2206549500958587 /* MainTableViewController.swift in Sources */,
 				28E39F222206533A00A71535 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
