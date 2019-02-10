@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="Cph-SV-Eqk" id="k4C-Sy-NRX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EFc-hy-ghy"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="EFc-hy-ghy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8DI-We-uMx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="insertNewObject:" destination="Cph-SV-Eqk" id="uwK-nr-Ak0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74F-tU-Mlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

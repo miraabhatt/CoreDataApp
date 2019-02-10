@@ -20,7 +20,31 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func insertNewObject(_ sender:Any) {
+        let alert = UIAlertController(title: "New Todo", message: "Enter details of new todo item", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter item description"
+            textField.font = UIFont(name: "Charter Bold", size: 14)
+            textField.textAlignment = NSTextAlignment.center
+        }
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+            let newTodo = ToDo(context: self.fetchedResultController.managedObjectContext)
+            newTodo.createdAt = Date(timeIntervalSinceNow: 0)
+            newTodo.text = alert.textFields?.first?.text ?? ""
+            newTodo.completed = false
+            
+            do {
+                try self.fetchedResultController.managedObjectContext.save()
+            } catch let error {
+                print("unable to save item due to \(error.localizedDescription)")
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,7 +60,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let todo = fetchedResultController.object(at: indexPath)
         cell.textLabel?.text = todo.text
         cell.detailTextLabel?.text = todo.createdAt?.description
@@ -54,6 +78,8 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         switch type {
         case .insert:
             tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
         default:
@@ -63,6 +89,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+        
     }
     
     /*
