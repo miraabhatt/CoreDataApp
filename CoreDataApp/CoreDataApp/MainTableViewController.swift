@@ -22,7 +22,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     }
     
     @IBAction func insertNewObject(_ sender:Any) {
-        let alert = UIAlertController(title: "New Todo", message: "Enter details of new todo item", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Todo", message: "Enter Details of New Todo Item", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Enter item description"
             textField.font = UIFont(name: "Charter Bold", size: 14)
@@ -92,26 +92,33 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         
     }
     
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let obj = fetchedResultController.object(at: indexPath)
+            fetchedResultController.managedObjectContext.delete(obj)
+            do {
+                try fetchedResultController.managedObjectContext.save()
+                
+            }
+            catch let error {
+                print ("Could not delete \(obj.text ?? "") due to \(error.localizedDescription)")
+            }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -127,7 +134,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     }
     */
 
-    /*
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -135,7 +142,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
     var fetchedResultController: NSFetchedResultsController<ToDo> {
         if _fetchedResultsController != nil {

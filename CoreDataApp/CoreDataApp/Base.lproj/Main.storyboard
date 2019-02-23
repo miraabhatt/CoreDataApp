@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Todo List-->
         <scene sceneID="SDy-mp-Yxg">
             <objects>
                 <tableViewController id="Cph-SV-Eqk" customClass="MainTableViewController" customModule="CoreDataApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,6 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="E42-ge-VNg" kind="show" id="SLu-L7-lJc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,7 +36,7 @@
                             <outlet property="delegate" destination="Cph-SV-Eqk" id="k4C-Sy-NRX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EFc-hy-ghy">
+                    <navigationItem key="navigationItem" title="Todo List" id="EFc-hy-ghy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8DI-We-uMx">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -44,6 +48,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74F-tU-Mlk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="396" y="-42"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="hA6-xH-x2D">
+            <objects>
+                <viewController id="E42-ge-VNg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eB7-t2-hff">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-Xa-0XY">
+                                <rect key="frame" x="0.0" y="126.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Created At" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3c-t0-XcQ">
+                                <rect key="frame" x="138" y="98" width="99" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybr-Dd-MzS">
+                                <rect key="frame" x="171" y="272" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ogp-y7-ZCu">
+                                <rect key="frame" x="0.0" y="301.5" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="gag-Ic-a8x"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uV1-nR-meU">
+                                <rect key="frame" x="166" y="539" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRK-N0-aW4">
+                                <rect key="frame" x="166" y="532" width="22" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDI-HI-osf">
+                                <rect key="frame" x="145" y="503" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="I6C-Xa-0XY" firstAttribute="centerX" secondItem="Ad7-S6-Yez" secondAttribute="centerX" id="0Cp-Nf-mYN"/>
+                            <constraint firstItem="uV1-nR-meU" firstAttribute="centerY" secondItem="Ad7-S6-Yez" secondAttribute="centerY" id="2QE-so-dLG"/>
+                            <constraint firstItem="f3c-t0-XcQ" firstAttribute="top" secondItem="Ad7-S6-Yez" secondAttribute="top" constant="34" id="2pD-Gx-ETf"/>
+                            <constraint firstItem="ybr-Dd-MzS" firstAttribute="centerX" secondItem="Ad7-S6-Yez" secondAttribute="centerX" id="72T-HX-5DZ"/>
+                            <constraint firstItem="Ogp-y7-ZCu" firstAttribute="width" secondItem="eB7-t2-hff" secondAttribute="width" id="7sD-cE-eLf"/>
+                            <constraint firstItem="I6C-Xa-0XY" firstAttribute="width" secondItem="eB7-t2-hff" secondAttribute="width" id="Gb4-Q2-TUT"/>
+                            <constraint firstItem="uV1-nR-meU" firstAttribute="top" secondItem="dDI-HI-osf" secondAttribute="bottom" constant="44" id="HPw-4F-LEZ"/>
+                            <constraint firstItem="TRK-N0-aW4" firstAttribute="centerY" secondItem="Ad7-S6-Yez" secondAttribute="centerY" id="I4n-N9-CRl"/>
+                            <constraint firstItem="Ogp-y7-ZCu" firstAttribute="centerY" secondItem="Ad7-S6-Yez" secondAttribute="centerY" id="JmA-1Z-bo0"/>
+                            <constraint firstItem="I6C-Xa-0XY" firstAttribute="top" secondItem="f3c-t0-XcQ" secondAttribute="bottom" constant="8" id="RiM-Sx-ji1"/>
+                            <constraint firstItem="Ogp-y7-ZCu" firstAttribute="centerX" secondItem="Ad7-S6-Yez" secondAttribute="centerX" id="arE-My-d4Z"/>
+                            <constraint firstItem="TRK-N0-aW4" firstAttribute="top" secondItem="dDI-HI-osf" secondAttribute="bottom" constant="8" id="gbO-Y1-mWd"/>
+                            <constraint firstItem="Ogp-y7-ZCu" firstAttribute="top" secondItem="ybr-Dd-MzS" secondAttribute="bottom" constant="8.5" id="goU-hf-wUb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ad7-S6-Yez"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="WOc-fW-MwE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3L-KQ-lf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="-39.130434782608695"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Cg-Ul-OcV">
@@ -71,4 +154,5 @@
             <point key="canvasLocation" x="-556" y="-42"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
