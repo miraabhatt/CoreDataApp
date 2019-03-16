@@ -22,7 +22,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     }
     
     @IBAction func insertNewObject(_ sender:Any) {
-        let alert = UIAlertController(title: "New Todo", message: "Enter Details of New Todo Item", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Todo", message: "Enter details of new todo item", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Enter item description"
             textField.font = UIFont(name: "Charter Bold", size: 14)
@@ -141,6 +141,12 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if let identifier = segue.identifier, identifier == "details" {
+            let dest = segue.destination as! DetailsViewController
+            dest.toDo = fetchedResultController.object(at: tableView.indexPathForSelectedRow!)
+        }
+        
     }
 
 

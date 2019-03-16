@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2821575D2206549500958587 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821575C2206549500958587 /* MainTableViewController.swift */; };
+		2821575F223DABCC00958587 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2821575E223DABCC00958587 /* DetailsViewController.swift */; };
 		28E39F222206533A00A71535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E39F212206533A00A71535 /* AppDelegate.swift */; };
 		28E39F272206533A00A71535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E39F252206533A00A71535 /* Main.storyboard */; };
 		28E39F2A2206533A00A71535 /* CoreDataApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28E39F282206533A00A71535 /* CoreDataApp.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2821575C2206549500958587 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		2821575E223DABCC00958587 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		28E39F1E2206533A00A71535 /* CoreDataApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E39F212206533A00A71535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28E39F262206533A00A71535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				28E39F212206533A00A71535 /* AppDelegate.swift */,
 				2821575C2206549500958587 /* MainTableViewController.swift */,
 				28E39F252206533A00A71535 /* Main.storyboard */,
+				2821575E223DABCC00958587 /* DetailsViewController.swift */,
 				28E39F2B2206534500A71535 /* Assets.xcassets */,
 				28E39F2D2206534500A71535 /* LaunchScreen.storyboard */,
 				28E39F302206534500A71535 /* Info.plist */,
@@ -262,6 +265,7 @@
 				28E39F2A2206533A00A71535 /* CoreDataApp.xcdatamodeld in Sources */,
 				2821575D2206549500958587 /* MainTableViewController.swift in Sources */,
 				28E39F222206533A00A71535 /* AppDelegate.swift in Sources */,
+				2821575F223DABCC00958587 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
