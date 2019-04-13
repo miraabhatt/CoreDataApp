@@ -21,6 +21,10 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     @IBAction func insertNewObject(_ sender:Any) {
         let alert = UIAlertController(title: "New Todo", message: "Enter details of new todo item", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -61,9 +65,13 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let todo = fetchedResultController.object(at: indexPath)
-        cell.textLabel?.text = todo.text
-        cell.detailTextLabel?.text = todo.createdAt?.description
+        let toDo = fetchedResultController.object(at: indexPath)
+        
+        cell.textLabel?.text = toDo.text
+        let df = DateFormatter()
+        df.timeStyle = .medium
+        df.dateStyle = .short
+        cell.detailTextLabel?.text = toDo.completed ? "Completed \(df.string(from: toDo.completedAt!))" : nil
     
         // Configure the cell...
 
@@ -144,7 +152,10 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         
         if let identifier = segue.identifier, identifier == "details" {
             let dest = segue.destination as! DetailsViewController
-            dest.toDo = fetchedResultController.object(at: tableView.indexPathForSelectedRow!)
+            let indexPath = tableView.indexPathForSelectedRow!
+            dest.toDo = fetchedResultController.object(at: indexPath)
+            dest.indexPath = indexPath
+            
         }
         
     }
@@ -157,7 +168,7 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         
         let fetchRequest: NSFetchRequest<ToDo> = ToDo.fetchRequest()
         
-        let sortDescriptors = [NSSortDescriptor(key: "completed", ascending: true), NSSortDescriptor(key: "createdAt", ascending: false)]
+        let sortDescriptors = [NSSortDescriptor(key: "completed", ascending: true), NSSortDescriptor(key: "completedAt", ascending: false), NSSortDescriptor(key: "createdAt", ascending: false)]
         
         fetchRequest.sortDescriptors = sortDescriptors
         
@@ -179,4 +190,10 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
 
     
     var _fetchedResultsController:NSFetchedResultsController<ToDo>! = nil
+    
+    @IBAction func unwindAndDelete(_ segue:UIStoryboardSegue) {
+        let src = segue.source as! DetailsViewController
+        let obj = src.toDo!
+        fetchedResultController.managedObjectContext.delete(obj)
+    }
 }
